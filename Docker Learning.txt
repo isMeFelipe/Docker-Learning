@@ -1,0 +1,57 @@
+Mais performático do que uma VM
+
+Matrix from hell -> Complexidade de instalação de várias configurações de setup para cada dispositivo (gasto absurdo de tempo)
+
+== Versões do Docker
+-- CE
+	-> Community Edition (Sem suporte, acesso a todos os recursos)
+
+-- EE
+	-> Enterprise Edition (Suporte do time do Docker, paga)
+
+
+== DOCKER vs VIRTUAL MACHINE
+ --> Container não possui sistema operacional (é uma solução para um problema específico)
+ --> Containers gastam menos recursos para serem executados
+
+
+== Container:
+ --> É o docker rodando alguma imagem
+ --> Um pacote de código que pode executar uma ação
+ --> Utilizam imagens
+ --> Múltiplos containers podem rodar juntos
+ --> Executa DockerFile (imagem base)
+
+== Imagem:
+ --> É o "projeto" que será executado pelo container, todas as instruções estarão declaras nela
+ --> DockerFile (configuração que será executada)
+ --> É possível rodar uma imagem com base em outra
+
+
+== COMANDOS DOCKER =================
+
+-- docker image ls : Exibe todas as imagens instaladas
+
+-- docker ps : Exibe os containers em execução
+    	-a : Exibe os containers já executados
+
+-- docker run <nome-do-container> : Executa um container
+	-it : Inicia o modo interativo via terminal
+	-d  : Executa o container em background (não ocupa o terminal) (detached)
+	-p  : Expõe a porta do container para acesso no computador; *porta_para_acessar_no_pc:porta_que_tem_no_container* 
+									ex: docker run -d  -p 3000:80 nginx
+
+      --name: Nomeia o container para uso em outros comandos; ex: docker run -d -p 80:80 --name ngix_felipe nginx
+
+
+-- docker stop <nome-do-container ou id> : Para a execução do container
+
+-- docker start <id ou name> : Ativa containers com execução parada
+
+-- docker logs <id ou name>  : Exibe o que foi feito no container 
+	--f : Ocupa o terminal para acompanhar o que for executado no log (follow)
+
+-- docker rm <id ou name>  : Remover o container
+	-f : força a remoção (remove mesmo com o container sendo executado)
+
+-- docker <comando> --help : Exibe informações sobre o comando

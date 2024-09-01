@@ -1,0 +1,32 @@
+** O nome deve ser Dockerfile **
+
+== ESTRUTURA BÁSICA:
+=> FROM: Imagem base
+=> WORKDIR: Diretório da aplicação
+=> EXPOSE: Porta da aplicação
+=> COPY: Quais arquivos precisam ser copiados
+
+
+== Exemplo # comentario
+
+FROM node:12 		# puxa a imagem do dockerhub  :12 indica a tag da imagem (nesse caso a versão)
+
+WORKDIR /app
+
+COPY package*.json . 	# Copia os arquivos para o diretorio do docker (.)
+
+RUN npm install
+
+COPY . .		# Copia tudo do diretorio para o diretorio do docker
+
+EXPOSE 3000 		# Expõe a porta 3000, é importante que a porta da aplicação exista no docker para ser exposta, se não ele não expõe nada
+
+CMD ["node", "app.js"]  # Alternativa para o RUN
+
+--> Cada linha é uma camada, durante alterações o docker executa apenas a camada alterada novamente e as camadas após a alterada (uso de cache)
+--> Toda vez que fizer alterações tem que refazer a build (há uma alternativa, ainda não aprendi)
+
+
+== COMANDOS ***********
+
+-- docker run build . (no diretório da imagem (raiz do projeto)) : Cria a imagem e armazena no dispositivo, agora é possível rodar um container com o id da imagem
