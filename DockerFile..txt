@@ -27,6 +27,9 @@ CMD ["node", "app.js"]  # Alternativa para o RUN
 --> Toda vez que fizer alterações tem que refazer a build (há uma alternativa, ainda não aprendi)
 
 
-== COMANDOS ***********
+== ******** COMANDOS ***********
 
--- docker run build . (no diretório da imagem (raiz do projeto)) : Cria a imagem e armazena no dispositivo, agora é possível rodar um container com o id da imagem
+-- docker build . (no diretório da imagem (raiz do projeto)) : Cria a imagem e armazena no dispositivo, agora é possível rodar um container com o id da imagem
+                    -t : Atribui nome:?tag para a imagem , ex1: docker build -t nome:tag .
+                                                           ex2: docker build -t nome_da_imagem .
+

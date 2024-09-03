@@ -1,0 +1,77 @@
+-- O que são?
+Uma forma prática de persistir dados em aplicações e não depender de containers para isso
+
+-- Todo dado criado por um container é salvo nele, mas quando o container é removido perdemos os dados
+
+-- Usados para gerenciar dados
+
+-- Vários containers podem interagir com um mesmo volume ao mesmo tempo
+
+
+
+-- docker volume ls 		  : Exibe todos os volumes do ambiente
+
+
+
+== TIPOS DE VOLUMES
+
+-- Anônimos(anonymous)  : Criado pela flag -v. porém com um nome aleatório
+
+*** COMANDOS ***
+
+docker run -v /data     : /data é o diretório que contém o volume anônimo
+
+
+-----------------------------------------------------------------------------
+
+
+-- Nomeados(named)      : São volumes com nomes, facilitando a referência
+
+*** COMANDOS ***
+docker run -v nome_do_volume:/data   : /data é o diretório que contém o volume anônimo
+
+-----------------------------------------------------------------------------
+
+
+-- Bind mounts          : Salvar os dados na máquina host (no dispositivo)
+
+
+*** COMANDOS ***
+docker run /dir/data:/data : Sendo /dir/data o diretório do dispositivo e /data o diretório do docker
+
+
+ex:
+docker run -d -p 80:80 --name php_messages_contaier -v C:\Users\felip\Desktop\Docker-Learning\Persistência_de_Dados:/var/www/html/messages --rm php_messages:v2
+
+
+
+
+*** ATUALIZAR REPOSITORIO EM TEMPO REAL ***
+docker run -d -p 80:80 --name php_messages_contaier -v C:\Users\felip\Desktop\Docker-Learning\Persistência_de_Dados:/var/www/html --rm php_messages:v2
+
+onde o caminho do volume no computador deve ser o diretório raiz da aplicação e do docker deve ser o do WORKDIR do Dockerfile
+
+
+
+-- CRIAR VOLUME MANUALMENTE
+
+docker volume create <nome>
+
+-- LISTAR VOLUMES 
+
+docker volume ls        : Exibe anonymous e named volumes
+
+-- CHECAR VOLUMES
+
+docker volume inspect nome  : Permite acesso ao local em que o volume guarda dados(Mountpoint), nome, escopo
+
+-- REMOVER VOLUME
+
+docker volume rm <nome>     : Remove o volume e todos os seus dados, alerta se um container está usando o volume
+
+-- REMOVER VOLUMES NÃO UTILIZADOS
+
+docker volume prune
+
+-- VOLUME APENAS DE LEITURA
+docker run -v volume:/data_path:ro   : a tag :ro indica read only

@@ -30,7 +30,11 @@ Matrix from hell -> Complexidade de instalação de várias configurações de s
 
 == COMANDOS DOCKER =================
 
--- docker image ls : Exibe todas as imagens instaladas
+-- docker image ls 			  : Exibe todas as imagens instaladas
+
+-- docker volume ls 		  : Exibe todos os volumes do ambiente
+
+-- docker container ls 		  : Exibe todos os containers em execução
 
 -- docker ps : Exibe os containers em execução
     	-a : Exibe os containers já executados
@@ -41,12 +45,14 @@ Matrix from hell -> Complexidade de instalação de várias configurações de s
 	-p  : Expõe a porta do container para acesso no computador; *porta_para_acessar_no_pc:porta_que_tem_no_container* 
 									ex: docker run -d  -p 3000:80 nginx
 
-      --name: Nomeia o container para uso em outros comandos; ex: docker run -d -p 80:80 --name ngix_felipe nginx
+	--rm: Exclui o container assim que ele para sua execução
+    --name: Nomeia o container para uso em outros comandos; ex: docker run -d -p 80:80 --name ngix_felipe nginx
 
 
 -- docker stop <nome-do-container ou id> : Para a execução do container
 
 -- docker start <id ou name> : Ativa containers com execução parada
+							-i: Permite iniciar container que foi configurado com -d para acessar o modo iterativo (iterative mode)
 
 -- docker logs <id ou name>  : Exibe o que foi feito no container 
 	--f : Ocupa o terminal para acompanhar o que for executado no log (follow)
@@ -54,4 +60,39 @@ Matrix from hell -> Complexidade de instalação de várias configurações de s
 -- docker rm <id ou name>  : Remover o container
 	-f : força a remoção (remove mesmo com o container sendo executado)
 
+-- docker rmi <id ou name> : Remover a imagem
+	-f : força a remoção (remove mesmo com container sendo executado ou inicializado com ela)
+
+-- docker system prune :  Remove imagens, containers, caches e networks não utilizados pelo sistema
+
 -- docker <comando> --help : Exibe informações sobre o comando
+
+-- docker tag <id da imagem> <novo_nome_imagem>:<?tag> 		: Nomeia a imagem e se quiser pode colocar uma tag para diferenciar
+
+-- docker cp <container>:<path do arquivo que quer copiar> <diretorio_destino> : Para copiar arquivos de um container(copy)
+
+-- docker top <container> : Mostra informações sobre o container
+
+-- docker inspect <container> : Mostra informações do container como: id, data de criação, imagem, status
+
+-- docker stats 			  : Verifica os processos executados pelo container (memmory, network, cpu)
+
+
+
+
+
+== COMO ENVIAR IMAGENS PARA O HUB
+-- CRIAR Repositório no HUB (private ou public)
+
+-- docker login  		: Para autenticação via terminal (obrigatório)
+
+-- docker push <imagem> : Enviar imagem para o repositório (a imagem deve seguir a nomeclatura dada pelo repositório)
+
+-- docker logout        : Para encerrar sessão de autenticação
+
+== RESGATAR A IMAGEM DO HUB
+-- docker pull <imagem> : Puxar imagem do HUB
+
+== ATUALIZAR IMAGEM DO HUB
+-- Basta trocar a tag da imagem e fazer o docker push
+
