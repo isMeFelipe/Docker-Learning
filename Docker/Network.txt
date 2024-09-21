@@ -1,0 +1,41 @@
+== O que é?
+    -- Gerenciar conexão do docker com outras plataformas ou entre containers
+    -- Facilita a comunicação entre containers
+    -- Algumas redes já são criadas (configuração inicial)
+
+== Tipos de conexão
+
+-- Externa: Conexão com API de um servidor remoto
+
+-- Host:  Com a máquina que está executando o Docker
+
+-- Entre containers: Utiliza driver bridge normalmente
+
+== Tipos de rede(drivers)
+
+-- Bridge   : Mais comum, utilizando quando containers precisam se conectar
+
+-- host     : Permite conexão entre o container com a máquina host
+
+-- macvlan  : Permite a conexão a um container por um MAC address
+
+-- none     : Remove todas as conexões de um container
+
+-- plugins  : Permite extensões de terceiros para criar outras redes
+
+
+== COMANDOS
+
+docker network ls                                      : Exibe as redes
+
+docker create <nome_da_rede>                           : O tipo padrão é bridge
+
+docker network rm <nome_da_rede>                       : Remove a network
+
+docker network prune                                   : Remove networks não utilizadas
+
+docker network connect <nome_da_rede> <container>      : Conecta o container na rede  
+
+docker network disconnect <nome_da_rede> <container>   : Desconecta o containewr da rede
+
+docker network inspect <nome_da_rede>                  : Exibe informações da rede

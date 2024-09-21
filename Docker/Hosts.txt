@@ -1,0 +1,4 @@
+-- Host é a máquina que está executando o docker 
+
+-- Ip de host:
+    == host.docker.internal

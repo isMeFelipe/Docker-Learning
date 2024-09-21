@@ -1,0 +1,58 @@
+-- É uma linguagem de serialização
+
+-- Utilizado para configurar o docker compose
+
+-- Extensões:  .yml ou .yaml
+
+-- Geralmente possui chaves:valores
+
+
+**IMPORTANTE**
+-- O fim de uma linha indica o fim de uma instrução (não há ponto e vírgula)
+-- É necessário ter exatamente um espaço entre a : e o valor conforme o exemplo "chave: valor"
+
+
+-- Identação é identificada a partir com dois espações abaixo da instrução
+exemplo: 
+objeto:
+  versao: 2
+  arquivo: "teste.txt"
+
+resultad_exemplo:objeto : {'versao': 2, 'arquivo': 'teste.txt'}
+
+----
+
+-- # Comentários 
+
+-- Dados numéricos:
+int: 2
+float: 3.14
+
+-- Dados textuais
+sem aspas: este é um texto válido
+com aspas: "este também é válido"
+
+-- Dados null
+e1: ~
+e2: null
+
+-- Dados Booleanos
+verdade1: On
+verdade2: True
+
+Falso1: Off
+Falso2: False
+
+-- Array
+# Array
+array1: [1,2,string,4,5]
+array2:               # mais comum
+- 6
+- "string"
+- 8                   # É importante manter o espaçamento
+
+-- Dicionários(objetos)
+obj1: {a: 1,b: 2,c: 3}
+obj2:
+  chave1: 1
+  chave2: 2

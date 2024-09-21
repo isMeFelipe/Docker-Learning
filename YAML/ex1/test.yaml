@@ -1,0 +1,34 @@
+# Strings
+nome: "Felipe"        
+trabalho: programador
+
+# Dados numéricos
+idade: 30             # int
+peso: 50.5            # float
+
+# null
+obs: ~
+info: null
+
+# booleanos
+verdade1: On
+verdade2: True
+Falso1: Off
+Falso2: False
+
+# Array
+array1: [1,2,string,4,5]
+array2:               # mais comum
+- 6
+- "string"
+- 8
+
+obj1: {a: 1,b: 2,c: 3}
+obj2:
+  chave1: 1
+  chave2: 2
+
+# Identação
+objeto:
+  versao: 2
+  arquivo: "teste.txt"
