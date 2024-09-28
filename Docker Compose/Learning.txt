@@ -1,0 +1,30 @@
+É uma ferramenta para roda múltiplos containers
+É uma forma de rodar múltiplos build e runs com um comando
+
+-- o arquivo se chama:
+    docker-compose.yml
+   
+    - Coordena os containers e imagens
+    - Campos:
+        version
+        services (Containers e Serviços que vão rodar no compose)
+        volumes 
+
+
+-- Para rodar:
+    docker compose up
+                        -d para rodar no background
+
+-- Para parar:
+    Ctrl + c
+
+    ou
+
+    docker compose down
+
+
+-- Variáveis de ambiente
+    - Em config colocar o arquivo .env seguindo assim: chave=valor (substitui chave: valor no docker file)
+
+
+-- Networks
